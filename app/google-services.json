@@ -1,0 +1,113 @@
+{
+  "project_info": {
+    "project_number": "25240239942",
+    "firebase_url": "https://talli-development.firebaseio.com",
+    "project_id": "talli-development",
+    "storage_bucket": "talli-development.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25240239942:android:1e2261a19d9c736c",
+        "android_client_info": {
+          "package_name": "com.Talli.Alpha.Development"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25240239942-ajf6jj1pguerefoea4j6puvfs46f7tdl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Talli.Alpha.Development",
+            "certificate_hash": "c3679dcc0f337aef497e7e5148a119c7bfa37e6f"
+          }
+        },
+        {
+          "client_id": "25240239942-0b3dp0hbbqh67dua0nemju3d8847984k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4hD4Hvc1igvYFY1Q-Bt5EzvdmuiT8P4o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25240239942-0b3dp0hbbqh67dua0nemju3d8847984k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "25240239942-akslr3e9r43nlqb4lcfhemavepqqhvmt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Talli.Alpha.Development"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25240239942:android:e8b41b82663ec05d",
+        "android_client_info": {
+          "package_name": "com.example.talli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25240239942-f5c7nnh2vi6su94q0stq3i9n823hte6d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.talli",
+            "certificate_hash": "fd7e04ae08e31061b32ec322257398794a3d4a44"
+          }
+        },
+        {
+          "client_id": "25240239942-0b3dp0hbbqh67dua0nemju3d8847984k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4hD4Hvc1igvYFY1Q-Bt5EzvdmuiT8P4o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25240239942-0b3dp0hbbqh67dua0nemju3d8847984k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "25240239942-akslr3e9r43nlqb4lcfhemavepqqhvmt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Talli.Alpha.Development"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
