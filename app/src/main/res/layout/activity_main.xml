@@ -1,18 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/cardview_light_background">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/return_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/cardview_light_background"
+        android:contentDescription="@string/return_activity"
+        android:scaleType="fitXY"
+        android:src="@drawable/back"
+        android:visibility="visible" />
 
-</android.support.constraint.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/shopping_cart_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/cardview_light_background"
+        android:contentDescription="@string/shopping_cart"
+        android:scaleType="fitXY"
+        android:src="@drawable/basket"
+        android:visibility="visible" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/search_card_view"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible"
+        app:cardBackgroundColor="@android:drawable/screen_background_dark_transparent"
+        app:cardCornerRadius="25dp">
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@null"
+            android:background="@null"
+            android:drawableStart="@drawable/ic_search_black_24dp"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="@string/type_something" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/ppb_cardView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/search_card_view"
+        android:layout_margin="0dp"
+        app:cardBackgroundColor="@android:color/darker_gray"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:contentPaddingTop="0dp"
+        app:contentPaddingBottom="0dp"
+        >
+
+        <Button
+            android:id="@+id/people_button"
+            android:layout_width="125dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@android:color/darker_gray"
+            android:paddingStart="1dp"
+            android:paddingLeft="1dp"
+            android:paddingEnd="1dp"
+            android:text="@string/people"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/products_button"
+            android:layout_width="125dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/darker_gray"
+            android:paddingStart="1dp"
+            android:paddingLeft="1dp"
+            android:paddingEnd="1dp"
+            android:text="@string/products"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/brands_button"
+            android:layout_width="125dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@android:color/darker_gray"
+            android:paddingStart="1dp"
+            android:paddingLeft="1dp"
+            android:paddingEnd="1dp"
+            android:text="@string/brands"
+            android:textSize="25sp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:visibility="visible" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/people_recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ppb_cardView"
+        android:visibility="visible"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/product_recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ppb_cardView"
+        android:visibility="invisible"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/brands_recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ppb_cardView"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
+
