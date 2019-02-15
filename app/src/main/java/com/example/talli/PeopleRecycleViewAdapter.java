@@ -1,11 +1,13 @@
 package com.example.talli;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +15,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Objects;
-
-import static com.example.talli.R.id.parent;
-import static com.example.talli.R.id.people_layout_listitem;
-import static com.example.talli.R.layout.people_layout_listitem;
 
 /*
 ViewHolder adapter is constructed to govern the content of each layout in the RecyclerView.
@@ -47,18 +45,24 @@ public class PeopleRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = View.inflate(R.layout.people_layout_listitem, viewGroup, false);
-        ViewHolder peopleHolder = new ViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.people_layout_listitem, parent, false);
+        ViewHolder peopleViewHolder = new ViewHolder(view);
 
-        return peopleHolder;
+        return peopleViewHolder;
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+        Log.d(TAG , "onBindViewHolder: called.");
+
+
+
 
     }
 
