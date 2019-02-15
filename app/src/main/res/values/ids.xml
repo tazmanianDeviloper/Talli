@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="people_layout_listitem" type="id">peopleListItem</item>
+</resources>
