@@ -15,9 +15,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+/* we are using firebase firestore, not firebase database.
+ * For firestore see:
+ *  0. https://firebase.google.com/docs/android/setup
+ *  1. https://firebase.google.com/docs/firestore/quickstart
+ *  2. https://github.com/firebase/snippets-android/blob/7d03e65500cd63a26e5bf9b8b6e4d3ab9479806a/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java#L132-L132
+ */
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -30,6 +34,21 @@ ViewHolder adapter is constructed to govern the content of each layout in the Re
 public class PeopleRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final String TAG = "PeopleRecycleViewAdapter";
 
+    /*
+    * adding firestore object
+    * */
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    /*
+     * I will let you follow the example for java android in
+     * https://firebase.google.com/docs/firestore/quickstart
+     * to continue.
+     *
+     * keep in mind that your your settings in firestore are:
+     * Project: talli-development
+     * For references: see https://firebase.google.com/docs/firestore/?authuser=0
+     * */
+
+
     private ArrayList <View> pPeopleImage = new ArrayList<>();
     private ArrayList <String> pPeopleName = new ArrayList<>();
     private ArrayList <View>  fFriendOrNot = new ArrayList<>();
@@ -41,10 +60,6 @@ public class PeopleRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.
         this.fFriendOrNot = fFriendOrNot;
         this.context = context;
     }
-
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef;
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @NonNull
     @Override
