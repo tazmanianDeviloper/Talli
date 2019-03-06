@@ -1,6 +1,7 @@
 package com.example.talli;
 
 import android.support.v7.widget.CardView;
+import android.text.Layout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,8 +14,7 @@ activity.
 public class PeopleJavaListitem {
 
     private String peopleName;
-    private CardView peopleCircleCardView;
-    private CardView friendStatusCardView;
+    private String peopleImageUrl;
 
 
     public PeopleJavaListitem() {
@@ -26,26 +26,25 @@ The constructor's ImageView fields will be initialized in Main with either mipma
 images later to be codded.
  */
 
-    public PeopleJavaListitem(String peopleName, CardView peopleCircleCardView, CardView friendStatusCardView) {
+    public PeopleJavaListitem(String peopleName, String peopleImageUrl) {
+        //condition for users without a name.
+        if (peopleName.trim().equals("")) peopleName = "No Name";
+
         this.peopleName = peopleName;
-        this.peopleCircleCardView = peopleCircleCardView;
-        this.friendStatusCardView = friendStatusCardView;
+        this.peopleImageUrl = peopleImageUrl;
     }
+
 
 /*
 Both parameterized constructor and getters are needed because one is for initialization and the
 other is for the RecyclerView
 */
 
-    public String getPeopleName() {
+    String getPeopleName() {
         return peopleName;
     }
 
-    public CardView getPeopleCircleCardView() {
-        return peopleCircleCardView;
-    }
-
-    public CardView getFriendStatusCardView() {
-        return friendStatusCardView;
+    String getPeopleImageUrl() {
+        return peopleImageUrl;
     }
 }
