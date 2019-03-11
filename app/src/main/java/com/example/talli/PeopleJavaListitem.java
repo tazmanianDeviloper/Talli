@@ -1,11 +1,5 @@
 package com.example.talli;
 
-import android.support.v7.widget.CardView;
-import android.text.Layout;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-
 /*
 The class will initialize the necessary fields for people button which will start the people
 activity.
@@ -15,7 +9,6 @@ public class PeopleJavaListitem {
 
     private String peopleName;
     private String peopleImageUrl;
-
 
     public PeopleJavaListitem() {
         // empty constructor for FireBase/FireStore
@@ -34,10 +27,9 @@ images later to be codded.
         this.peopleImageUrl = peopleImageUrl;
     }
 
-
 /*
 Both parameterized constructor and getters are needed because one is for initialization and the
-other is for the RecyclerView
+other is for the RecyclerView.
 */
 
     String getPeopleName() {
