@@ -1,25 +1,25 @@
 package com.example.talli;
 
 /*
-The class will initialize the necessary fields for people button which will start the people
+The class will initialize the necessary fields for the People button which will start the People
 activity.
  */
 
-public class PeopleJavaListitem {
+public class PeopleJavaListItem {
 
     private String peopleName;
     private String peopleImageUrl;
 
-    public PeopleJavaListitem() {
+    public PeopleJavaListItem() {
         // empty constructor for FireBase/FireStore
     }
 
 /*
-The constructor's ImageView fields will be initialized in Main with either mipmaps from fontawsome or
-images later to be codded.
+The String field peopleImageUrl will be initialized in Main with images from FireStore. The Images
+are not ImageView because in FireStore the only allowed format is String.
  */
 
-    public PeopleJavaListitem(String peopleName, String peopleImageUrl) {
+    public PeopleJavaListItem(String peopleName, String peopleImageUrl) {
         //condition for users without a name.
         if (peopleName.trim().equals("")) peopleName = "No Name";
 

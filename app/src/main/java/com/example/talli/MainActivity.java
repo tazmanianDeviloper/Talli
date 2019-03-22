@@ -1,6 +1,7 @@
 package com.example.talli;
 
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,9 +28,17 @@ public class MainActivity extends AppCompatActivity {
     Button barndsButton;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference taymaz = db.collection("taymaz");
 
-    private PeopleAdapter pAdapter;
+    private CollectionReference user = db.collection("user");
+    private CollectionReference products = db.collection("products");
+
+    private PeopleAdapter peopleAdapter;
+    private ProductAdapter productAdapter;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,31 +46,49 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lunchPeopleRecyclerView();
+        lunchProductRecyclerView();
     }
 
     void lunchPeopleRecyclerView(){
-        Query query = taymaz.orderBy("firstname", Query.Direction.ASCENDING);
+        Query query = user.orderBy("firstname", Query.Direction.ASCENDING);
 
-        FirestoreRecyclerOptions<PeopleJavaListitem> options = new FirestoreRecyclerOptions.Builder<PeopleJavaListitem>()
-                .setQuery(query, PeopleJavaListitem.class)
+        FirestoreRecyclerOptions<PeopleJavaListItem> options = new FirestoreRecyclerOptions.Builder<PeopleJavaListItem>()
+                .setQuery(query, PeopleJavaListItem.class)
                 .build();
 
-        pAdapter = new PeopleAdapter(options);
+        peopleAdapter = new PeopleAdapter(options);
 
         RecyclerView peopleRecyclerView = findViewById((R.id.people_recycleView));
         peopleRecyclerView.setHasFixedSize(true);
         peopleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        peopleRecyclerView.setAdapter(pAdapter);
+        peopleRecyclerView.setAdapter(peopleAdapter);
+    }
+
+    void lunchProductRecyclerView(){
+        Query query = products.orderBy("id", Query.Direction.ASCENDING);
+
+        FirestoreRecyclerOptions<ProductJavaListItem> options = new FirestoreRecyclerOptions.Builder<ProductJavaListItem>()
+                .setQuery(query, ProductJavaListItem.class)
+                .build();
+
+        productAdapter = new ProductAdapter(options);
+
+        RecyclerView productRecyclerView = findViewById((R.id.product_recycleView));
+        productRecyclerView.setHasFixedSize(true);
+        productRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        productRecyclerView.setAdapter(peopleAdapter);
     }
 
     protected void onStart (){
         super.onStart();
-        pAdapter.startListening();
+        peopleAdapter.startListening();
+        productAdapter.startListening();
     }
 
     protected void onStop (){
         super.onStop();
-        pAdapter.stopListening();
+        peopleAdapter.stopListening();
+        productAdapter.startListening();
     }
 }
 

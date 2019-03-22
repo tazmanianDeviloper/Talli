@@ -14,15 +14,15 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 
 
-public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListitem, PeopleAdapter.PeopleHolder>{
+public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem, PeopleAdapter.PeopleHolder>{
 
-    public PeopleAdapter(@NonNull FirestoreRecyclerOptions<PeopleJavaListitem> options) {
+    PeopleAdapter(@NonNull FirestoreRecyclerOptions<PeopleJavaListItem> options) {
         super(options);
     }
 
 
     @Override
-    protected void onBindViewHolder(@NonNull PeopleHolder holder, int position, @NonNull PeopleJavaListitem model) {
+    protected void onBindViewHolder(@NonNull PeopleHolder holder, int position, @NonNull PeopleJavaListItem model) {
 
         holder.peopleName.setText(model.getPeopleName());
         Glide.with(holder.peopleImage)
@@ -34,7 +34,7 @@ public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListitem,
     @NonNull
     @Override
     public PeopleHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.people_layout_listitem, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.people_layout_list_item, viewGroup, false);
 
         return new PeopleHolder(v);
     }
