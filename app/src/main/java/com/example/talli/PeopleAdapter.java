@@ -12,7 +12,9 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-
+/*
+Firestore adapter retrieving data from the database and assigning them to class variables.
+ */
 
 public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem, PeopleAdapter.PeopleHolder>{
 
@@ -38,7 +40,9 @@ public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem,
 
         return new PeopleHolder(v);
     }
-
+/*
+The holder class mapping instances of ProductJavaListItem Class and initiating them to the super().
+ */
     class PeopleHolder extends RecyclerView.ViewHolder {
         TextView peopleName;
         ImageView peopleImage;

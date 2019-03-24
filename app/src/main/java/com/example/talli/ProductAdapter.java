@@ -12,7 +12,9 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.bumptech.glide.Glide;
 
-
+/*
+Firestore adapter retrieving data from the database and assigning them to class variables.
+ */
 public class ProductAdapter extends FirestoreRecyclerAdapter <ProductJavaListItem, ProductAdapter.ProductHolder>{
 
 ProductAdapter(@NonNull FirestoreRecyclerOptions<ProductJavaListItem> options) {
@@ -23,9 +25,9 @@ ProductAdapter(@NonNull FirestoreRecyclerOptions<ProductJavaListItem> options) {
 @Override
 protected void onBindViewHolder(@NonNull ProductHolder holder, int position, @NonNull ProductJavaListItem model) {
 
-        holder.productName.setText(model.getProductBrandName());
+        holder.productName.setText(model.getProductName());
         Glide.with(holder.productImage)
-        .load(model.getProductBrandImage())
+        .load(model.getProductImage())
         .into(holder.productImage);
 
         }
@@ -37,7 +39,9 @@ public ProductHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         return new ProductHolder(v);
         }
-
+/*
+The holder class mapping instances of ProductJavaListItem Class and initiating them to the super().
+ */
 class ProductHolder extends RecyclerView.ViewHolder {
     TextView productName;
     ImageView productImage;

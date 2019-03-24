@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -15,7 +17,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Layout searchPageLayout;
 
@@ -45,8 +47,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lunchPeopleRecyclerView();
-        lunchProductRecyclerView();
+        Button peopleButton = findViewById(R.id.people_button);
+        Button productButton = findViewById(R.id.products_button);
+        Button brandButton = findViewById(R.id.brands_button);
+
+        peopleButton.setOnClickListener(this);
+        productButton.setOnClickListener(this);
+        brandButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.people_button:
+                lunchPeopleRecyclerView();
+                break;
+            case R.id.products_button:
+                peopleButton.setVisibility(View.INVISIBLE);
+                productsButton.setVisibility(View.VISIBLE);
+                lunchProductRecyclerView();
+                break;
+            case R.id.brands_button:
+                peopleButton.setVisibility(View.INVISIBLE);
+                productsButton.setVisibility(View.INVISIBLE);
+                break;
+
+        }
     }
 
     void lunchPeopleRecyclerView(){
@@ -90,5 +116,6 @@ public class MainActivity extends AppCompatActivity {
         peopleAdapter.stopListening();
         productAdapter.startListening();
     }
+
 }
 
