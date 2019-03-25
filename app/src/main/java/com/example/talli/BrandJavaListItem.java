@@ -1,30 +1,30 @@
 package com.example.talli;
 
 /*
-The class will initialize the necessary fields for the Product button which will start the Products
-activity.
+The class will initialize the necessary fields for the Brands button which will start the Brand
+RecyclerView.
  */
 
 public class BrandJavaListItem {
 
-    private String productBrandName;
-    private String productBrandImage;
+    private String BrandName;
+    private String BrandImage;
 
     public BrandJavaListItem() {
     }
 
 /*
-The String field productBrandImage will be initialized in Main with images from FireStore. The Images
+The String field BrandImage will be initialized in Main with images from FireStore. The Images
 are not ImageView because in FireStore the only allowed format is String.
  */
 
-    public BrandJavaListItem(String productBrandName, String productBrandImage) {
+    public BrandJavaListItem(String BrandName, String BrandImage) {
 
         //condition for users without a name.
-        if (productBrandName.trim().equals("")) productBrandName = "No Brand Name!!!";
+        if (BrandName.trim().equals("")) BrandName = "No Brand Name!!!";
 
-        this.productBrandName = productBrandName;
-        this.productBrandImage = productBrandImage;
+        this.BrandName = BrandName;
+        this.BrandImage = BrandImage;
     }
 
 /*
@@ -32,12 +32,12 @@ Both parameterized constructor and getters are needed because one is for initial
 other is for the RecyclerView.
 */
 
-    public String getProductBrandName() {
-        return productBrandName;
+    String getBrandName() {
+        return BrandName;
     }
 
-    public String getProductBrandImage() {
-        return productBrandImage;
+    String getBrandImage() {
+        return BrandImage;
     }
 }
 

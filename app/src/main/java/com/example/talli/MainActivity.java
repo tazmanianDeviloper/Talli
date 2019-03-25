@@ -27,16 +27,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button peopleButton;
     Button productsButton;
-    Button barndsButton;
+    Button brandButton;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private CollectionReference user = db.collection("user");
     private CollectionReference products = db.collection("products");
+    private CollectionReference brands = db.collection("brands");
 
     private PeopleAdapter peopleAdapter;
     private ProductAdapter productAdapter;
-
+    private BrandAdapter brandAdapter;
+// not sure if I need this method. Will delete it later to see if it was needed.
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -47,15 +49,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button peopleButton = findViewById(R.id.people_button);
-        Button productButton = findViewById(R.id.products_button);
-        Button brandButton = findViewById(R.id.brands_button);
+        peopleButton = findViewById(R.id.people_button);
+        productsButton = findViewById(R.id.products_button);
+        brandButton = findViewById(R.id.brands_button);
 
         peopleButton.setOnClickListener(this);
-        productButton.setOnClickListener(this);
+        productsButton.setOnClickListener(this);
         brandButton.setOnClickListener(this);
     }
 
+    // TODO: 3/24/2019 must add a default case which serves as the first screen the user encounters.
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -70,13 +73,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.brands_button:
                 peopleButton.setVisibility(View.INVISIBLE);
                 productsButton.setVisibility(View.INVISIBLE);
+                lunchBrandRecyclerView();
                 break;
 
         }
     }
 
     void lunchPeopleRecyclerView(){
-        Query query = user.orderBy("firstname", Query.Direction.ASCENDING);
+        Query query = user.orderBy("first name", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<PeopleJavaListItem> options = new FirestoreRecyclerOptions.Builder<PeopleJavaListItem>()
                 .setQuery(query, PeopleJavaListItem.class)
@@ -105,16 +109,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         productRecyclerView.setAdapter(peopleAdapter);
     }
 
+    void lunchBrandRecyclerView(){
+        Query query = brands.orderBy("id", Query.Direction.ASCENDING);
+
+        FirestoreRecyclerOptions<BrandJavaListItem> options = new FirestoreRecyclerOptions.Builder<BrandJavaListItem>()
+                .setQuery(query, BrandJavaListItem.class)
+                .build();
+
+        brandAdapter = new BrandAdapter(options);
+
+        RecyclerView brandRecyclerView = findViewById((R.id.brands_recycleView));
+        brandRecyclerView.setHasFixedSize(true);
+        brandRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        brandRecyclerView.setAdapter(brandAdapter);
+    }
+
+
     protected void onStart (){
         super.onStart();
         peopleAdapter.startListening();
         productAdapter.startListening();
+        brandAdapter.startListening();
     }
 
     protected void onStop (){
         super.onStop();
         peopleAdapter.stopListening();
         productAdapter.startListening();
+        brandAdapter.stopListening();
     }
 
 }

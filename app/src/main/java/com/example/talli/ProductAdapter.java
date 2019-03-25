@@ -40,7 +40,7 @@ public ProductHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         return new ProductHolder(v);
         }
 /*
-The holder class mapping instances of ProductJavaListItem Class and initiating them to the super().
+The holder class mapping instances of ProductJavaListItem Class and initiating them to the
  */
 class ProductHolder extends RecyclerView.ViewHolder {
     TextView productName;

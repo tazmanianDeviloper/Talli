@@ -14,14 +14,14 @@ public class ProductJavaListItem {
     }
 
 /*
-The String field productBrandImage will be initialized in Main with images from FireStore. The Images
+The String field productImage will be initialized in Main with images from FireStore. The Images
 are not ImageView because in FireStore the only allowed format is String.
  */
 
     public ProductJavaListItem(String productName, String productImage) {
 
         //condition for users without a name.
-        if (productName.trim().equals("")) productName = "No Brand Name!!!";
+        if (productName.trim().equals("")) productName = "No Product Name!!!";
 
         this.productName = productName;
         this.productImage = productImage;
@@ -32,11 +32,12 @@ Both parameterized constructor and getters are needed because one is for initial
 other is for the RecyclerView.
 */
 
-    String getProductName() {
+    public String getProductName() {
+
         return productName;
     }
 
-    String getProductImage() {
+    public String getProductImage() {
         return productImage;
     }
 }
