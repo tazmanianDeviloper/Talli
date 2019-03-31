@@ -8,4 +8,9 @@
     <string name="people">People</string>
     <string name="products">Products</string>
     <string name="brands">Brands</string>
+    <string name="image_from_firestore">image_from_firestore</string>
+    <string name="default_image_if_no_firestore">default_image_if_no_firestore</string>
+    <string name="pff">pulled_from_firestore</string>
+    <string name="pffo">pulled_from_fontawsome</string>
+    <string name="pffi">pffi</string>
 </resources>

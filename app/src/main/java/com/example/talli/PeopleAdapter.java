@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.FixedSizeDrawable;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
@@ -30,7 +31,6 @@ public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem,
         Glide.with(holder.peopleImage)
                 .load(model.getPeopleImageUrl())
                 .into(holder.peopleImage);
-
     }
 
     @NonNull

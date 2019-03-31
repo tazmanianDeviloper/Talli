@@ -2,6 +2,7 @@ package com.example.talli;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
@@ -21,13 +23,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Layout searchPageLayout;
 
-    Button returnButton;
-    EditText search;
-    Button shoppingCartButton;
+    TextView returnButton;
+    EditText searchMagnifyingGlass;
+    TextView shoppingCartButton;
 
     Button peopleButton;
     Button productsButton;
     Button brandButton;
+
+    RecyclerView peopleRecyclerView;
+    RecyclerView productsRecycleView;
+    RecyclerView brandsRecyclerView;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -56,26 +62,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         peopleButton.setOnClickListener(this);
         productsButton.setOnClickListener(this);
         brandButton.setOnClickListener(this);
+
+        peopleRecyclerView = findViewById(R.id.people_recycleView);
+        productsRecycleView = findViewById(R.id.product_recycleView);
+        brandsRecyclerView = findViewById(R.id.brands_recycleView);
+
+        returnButton = (TextView) findViewById(R.id.return_button);
+        Typeface leftArrowIcon = Typeface.createFromAsset(getAssets(),"fonts/Pro-Light-300.otf");
+        returnButton.setTypeface(leftArrowIcon);
+        returnButton.setText("\uf060");
+
+        shoppingCartButton = (TextView) findViewById(R.id.shopping_cart_button);
+        Typeface cartPlusIcon = Typeface.createFromAsset(getAssets(),"fonts/Pro-Light-300.otf");
+        shoppingCartButton.setTypeface(cartPlusIcon);
+        shoppingCartButton.setText("\uf217");
+
+//I am not sure if I can set the magnifying glass icon at the beginning of the search bar using a fontawsome icon.
+        searchMagnifyingGlass = (EditText) findViewById(R.id.search_magnifying_glass);
+        Typeface magnifyingGlassIcon = Typeface.createFromAsset(getAssets(),"fonts/Pro-Light-300.otf");
+        searchMagnifyingGlass.setTypeface(magnifyingGlassIcon);
+        searchMagnifyingGlass.setText("\uf002");
+
+//the default view before user's input.
+        lunchPeopleRecyclerView();
+
     }
 
-    // TODO: 3/24/2019 must add a default case which serves as the first screen the user encounters.
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.people_button:
+                brandsRecyclerView.setVisibility(View.INVISIBLE);
+                productsRecycleView.setVisibility(View.INVISIBLE);
+                peopleRecyclerView.setVisibility(View.VISIBLE);
                 lunchPeopleRecyclerView();
                 break;
             case R.id.products_button:
-                peopleButton.setVisibility(View.INVISIBLE);
-                productsButton.setVisibility(View.VISIBLE);
+                brandsRecyclerView.setVisibility(View.INVISIBLE);
+                peopleRecyclerView.setVisibility(View.INVISIBLE);
+                productsRecycleView.setVisibility(View.VISIBLE);
                 lunchProductRecyclerView();
                 break;
             case R.id.brands_button:
-                peopleButton.setVisibility(View.INVISIBLE);
-                productsButton.setVisibility(View.INVISIBLE);
+                peopleRecyclerView.setVisibility(View.INVISIBLE);
+                productsRecycleView.setVisibility(View.INVISIBLE);
+                brandsRecyclerView.setVisibility(View.VISIBLE);
                 lunchBrandRecyclerView();
                 break;
-
+            default:
+                brandsRecyclerView.setVisibility(View.INVISIBLE);
+                productsRecycleView.setVisibility(View.INVISIBLE);
+                peopleRecyclerView.setVisibility(View.VISIBLE);
+                lunchPeopleRecyclerView();
         }
     }
 

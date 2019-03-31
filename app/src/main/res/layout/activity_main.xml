@@ -3,12 +3,13 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/search_page_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background">
 
-    <ImageButton
+    <TextView
         android:id="@+id/return_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -20,10 +21,10 @@
         android:background="@color/cardview_light_background"
         android:contentDescription="@string/return_activity"
         android:scaleType="fitXY"
-        android:src="@drawable/back"
-        android:visibility="visible" />
+        android:visibility="visible"
+        tools:ignore="PrivateResource" />
 
-    <ImageButton
+    <TextView
         android:id="@+id/shopping_cart_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -35,8 +36,8 @@
         android:background="@color/cardview_light_background"
         android:contentDescription="@string/shopping_cart"
         android:scaleType="fitXY"
-        android:src="@drawable/basket"
-        android:visibility="visible" />
+        android:visibility="visible"
+        tools:ignore="PrivateResource" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/search_card_view"
@@ -51,7 +52,7 @@
         app:cardCornerRadius="25dp">
 
         <EditText
-            android:id="@+id/search"
+            android:id="@+id/search_magnifying_glass"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textCursorDrawable="@null"
