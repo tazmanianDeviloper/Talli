@@ -5,11 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.FixedSizeDrawable;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
@@ -19,6 +16,8 @@ Firestore adapter retrieving data from the database and assigning them to class 
 
 public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem, PeopleAdapter.PeopleHolder>{
 
+
+
     PeopleAdapter(@NonNull FirestoreRecyclerOptions<PeopleJavaListItem> options) {
         super(options);
     }
@@ -27,10 +26,11 @@ public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem,
     @Override
     protected void onBindViewHolder(@NonNull PeopleHolder holder, int position, @NonNull PeopleJavaListItem model) {
 
-        holder.peopleName.setText(model.getPeopleName());
-        Glide.with(holder.peopleImage)
-                .load(model.getPeopleImageUrl())
-                .into(holder.peopleImage);
+        holder.userName.setText(model.getUserName());
+        holder.peopleImage.setText(model.getUserImage());
+       // Glide.with(holder.peopleImage).load(model.getUserImage()).into(holder.peopleImage);
+
+
     }
 
     @NonNull
@@ -44,13 +44,13 @@ public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem,
 The holder class mapping instances of ProductJavaListItem Class and initiating them to the super().
  */
     class PeopleHolder extends RecyclerView.ViewHolder {
-        TextView peopleName;
-        ImageView peopleImage;
+        TextView userName;
+        TextView peopleImage;
 
         PeopleHolder(@NonNull View itemView) {
             super(itemView);
-            peopleName = itemView.findViewById(R.id.people_name);
-            peopleImage = itemView.findViewById(R.id.people_image);
+            userName = itemView.findViewById(R.id.people_name);
+            peopleImage = itemView.findViewById(R.id.user_image);
 
         }
     }

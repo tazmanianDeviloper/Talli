@@ -5,26 +5,46 @@ The class will initialize the necessary fields for the People button which will 
 activity.
  */
 
-public class PeopleJavaListItem {
+import android.graphics.Typeface;
+import android.widget.TextView;
 
-    private String peopleName;
-    private String peopleImageUrl;
+public class PeopleJavaListItem extends MainActivity {
+
+// Fontawsome icons represented by the fallowing two variables.
+    private TextView userNoName;
+    private TextView userNoImage;
+
+// Firestore data-set represented by the fallowing two variables.
+    private String userName;
+    private String userImage;
 
     public PeopleJavaListItem() {
         // empty constructor for FireBase/FireStore
     }
 
 /*
-The String field peopleImageUrl will be initialized in Main with images from FireStore. The Images
+The String field userImage will be initialized in Main with images from FireStore. The Images
 are not ImageView because in FireStore the only allowed format is String.
  */
 
-    public PeopleJavaListItem(String peopleName, String peopleImageUrl) {
-        //condition for users without a name.
-        if (peopleName.trim().equals("")) peopleName = "No Name";
+    public PeopleJavaListItem(String userName, String userImage) {
 
-        this.peopleName = peopleName;
-        this.peopleImageUrl = peopleImageUrl;
+        //condition for users without a name.
+        if (userName.trim().equals("")) {
+            userNoName.setText("No Name");
+            this.userName = userName;
+
+        }
+        //condition for users without an image.
+        if (userImage.trim().equals("")){
+            userNoImage = (TextView) findViewById(R.id.user_no_image);
+            Typeface userPlus = Typeface.createFromAsset(getAssets(),"fonts/Pro-Light-300.otf");
+            userNoImage.setTypeface(userPlus);
+            userNoImage.setText("\uf506");
+        }
+
+
+        this.userImage = userImage;
     }
 
 /*
@@ -32,11 +52,11 @@ Both parameterized constructor and getters are needed because one is for initial
 other is for the RecyclerView.
 */
 
-    String getPeopleName() {
-        return peopleName;
+    String getUserName() {
+        return userName;
     }
 
-    String getPeopleImageUrl() {
-        return peopleImageUrl;
+    String getUserImage() {
+        return userImage;
     }
 }

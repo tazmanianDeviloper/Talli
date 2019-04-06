@@ -25,16 +25,16 @@
         tools:ignore="UnusedAttribute">
 
 
-        <ImageView
-            android:id="@+id/people_image"
+        <TextView
+            android:id="@+id/user_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round"
             android:visibility="invisible"
             android:contentDescription="@string/pffi" />
-        <ImageView
-            android:id="@+id/no_people_image"
+        <TextView
+            android:id="@+id/user_no_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"

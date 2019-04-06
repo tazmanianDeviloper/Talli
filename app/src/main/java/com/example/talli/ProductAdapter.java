@@ -29,7 +29,6 @@ protected void onBindViewHolder(@NonNull ProductHolder holder, int position, @No
         Glide.with(holder.productImage)
         .load(model.getProductImage())
         .into(holder.productImage);
-
         }
 
 @NonNull
