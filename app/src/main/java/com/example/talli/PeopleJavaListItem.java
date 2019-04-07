@@ -38,7 +38,7 @@ are not ImageView because in FireStore the only allowed format is String.
         //condition for users without an image.
         if (userImage.trim().equals("")){
             userNoImage = (TextView) findViewById(R.id.user_no_image);
-            Typeface userPlus = Typeface.createFromAsset(getAssets(),"fonts/Pro-Light-300.otf");
+            Typeface userPlus = Typeface.createFromAsset(getAssets(),"fonts/font_awesome_5_pro_light_300.otf");
             userNoImage.setTypeface(userPlus);
             userNoImage.setText("\uf506");
         }
