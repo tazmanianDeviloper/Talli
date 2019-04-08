@@ -9,7 +9,22 @@
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background">
 
-    <TextView
+    <!--<TextView-->
+        <!--android:id="@+id/return_button"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_marginTop="3dp"-->
+        <!--android:layout_marginBottom="3dp"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:background="@color/cardview_light_background"-->
+        <!--android:contentDescription="@string/return_activity"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:visibility="visible"-->
+        <!--tools:ignore="PrivateResource" />-->
+
+    <com.example.talli.view.FontAwesomeTextView
         android:id="@+id/return_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -18,17 +33,17 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@color/cardview_light_background"
-        android:contentDescription="@string/return_activity"
         android:scaleType="fitXY"
         android:visibility="visible"
-        tools:ignore="PrivateResource" />
+        android:text="@string/fa_icon_arrow_left"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.example.talli.view.FontAwesomeTextView
         android:id="@+id/shopping_cart_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="8dp"
         android:text="@string/fa_icon_cart_plus"
         android:textSize="50sp"

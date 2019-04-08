@@ -25,7 +25,7 @@ public class PeopleJavaListItem extends MainActivity {
 /*
 The String field userImage will be initialized in Main with images from FireStore. The Images
 are not ImageView because in FireStore the only allowed format is String.
- */
+*/
 
     public PeopleJavaListItem(String userName, String userImage) {
 

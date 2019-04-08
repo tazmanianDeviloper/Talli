@@ -25,7 +25,7 @@ public class FontAwesomeTextView extends AppCompatTextView {
 
     private void createView(){
         setGravity(Gravity.CENTER);
-        setTypeface(FontTypeface.get("font_awesome_5_pro_light_300.otf", context));
+        setTypeface(FontTypeface.get("fonts/font_awesome_5_pro_light_300.otf", context));
     }
 
 
