@@ -22,6 +22,7 @@ are not ImageView because in FireStore the only allowed format is String.
 
         //condition for users without a name.
         if (productName.trim().equals("")) productName = "No Product Name!!!";
+        //if (productImage.trim().equals("");
 
         this.productName = productName;
         this.productImage = productImage;

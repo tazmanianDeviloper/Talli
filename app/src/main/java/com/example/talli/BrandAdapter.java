@@ -26,9 +26,8 @@ public class BrandAdapter extends FirestoreRecyclerAdapter<BrandJavaListItem, Br
     protected void onBindViewHolder(@NonNull BrandHolder holder, int position, @NonNull BrandJavaListItem model) {
 
     holder.brandName.setText(model.getBrandName());
-    Glide.with(holder.brandImage)
-            .load(model.getBrandImage())
-            .into(holder.brandImage);
+    holder.brandImage.setText(model.getBrandImage());
+    //Glide.with(holder.brandImage).load(model.getBrandImage()).into(holder.brandImage);
 
 }
 
@@ -44,7 +43,7 @@ The holder class mapping instances of BrandJavaListItem Class and initiating the
 */
     class BrandHolder extends RecyclerView.ViewHolder {
         TextView brandName;
-        ImageView brandImage;
+        TextView brandImage;
 
         BrandHolder(@NonNull View itemView) {
             super(itemView);

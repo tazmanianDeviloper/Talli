@@ -26,9 +26,9 @@ ProductAdapter(@NonNull FirestoreRecyclerOptions<ProductJavaListItem> options) {
 protected void onBindViewHolder(@NonNull ProductHolder holder, int position, @NonNull ProductJavaListItem model) {
 
         holder.productName.setText(model.getProductName());
-        Glide.with(holder.productImage)
-        .load(model.getProductImage())
-        .into(holder.productImage);
+        holder.productImage.setText(model.getProductImage());
+
+        //Glide.with(holder.productImage).load(model.getProductImage()).into(holder.productImage);
         }
 
 @NonNull
@@ -43,7 +43,7 @@ The holder class mapping instances of ProductJavaListItem Class and initiating t
  */
 class ProductHolder extends RecyclerView.ViewHolder {
     TextView productName;
-    ImageView productImage;
+    TextView productImage;
 
     ProductHolder(@NonNull View itemView) {
         super(itemView);

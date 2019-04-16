@@ -21,7 +21,9 @@ are not ImageView because in FireStore the only allowed format is String.
     public BrandJavaListItem(String BrandName, String BrandImage) {
 
         //condition for users without a name.
-        if (BrandName.trim().equals("")) BrandName = "No Brand Name!!!";
+        if (BrandName.trim().equals("")) {
+            BrandName = "No Brand Name!!!";
+        }
 
         this.BrandName = BrandName;
         this.BrandImage = BrandImage;
