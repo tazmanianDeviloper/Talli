@@ -1,19 +1,21 @@
 package com.example.talli;
 
-import com.example.talli.view.FontAwesomeTextView;
-
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
-import android.view.Menu;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView productsRecycleView;
     RecyclerView brandsRecyclerView;
 
+    InputMethodManager imm;
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private CollectionReference user = db.collection("user");
@@ -45,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private PeopleAdapter peopleAdapter;
     private ProductAdapter productAdapter;
     private BrandAdapter brandAdapter;
-// not sure if I need this method. Will delete it later to see if it was needed.
+    // not sure if I need this method. Will delete it later to see if it was needed.
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -69,9 +73,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         brandsRecyclerView = findViewById(R.id.brands_recycleView);
 
         returnButton = (FontAwesomeTextView) findViewById(R.id.return_button);
-//        Typeface leftArrowIcon = Typeface.createFromAsset(getAssets(),"fonts/font_awesome_5_pro_light_300.otf");
-//        returnButton.setTypeface(leftArrowIcon);
-//        returnButton.setText("\uf060");
 
         shoppingCartButton = (FontAwesomeTextView) findViewById(R.id.shopping_cart_button);
         // Typeface cartPlusIcon = Typeface.createFromAsset(getAssets(),"fonts/Pro-Light-300.otf");
@@ -81,12 +82,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //I am not sure if I can set the magnifying glass icon at the beginning of the search bar using a fontawsome icon.
         // Superman: My suggestion is to look at daniel's fragment_camera.xml to see how he overlays com.Talli.Alpha.Development.IconTextView in the TalliAppAndroid Project
         searchMagnifyingGlass = (EditText) findViewById(R.id.search_magnifying_glass);
-        Typeface magnifyingGlassIcon = Typeface.createFromAsset(getAssets(),"fonts/font_awesome_5_pro_light_300.otf");
-        searchMagnifyingGlass.setTypeface(magnifyingGlassIcon);
-        searchMagnifyingGlass.setText("\uf002");
 
 //the default view before user's input.
         lunchPeopleRecyclerView();
+//listener checking for items that are searched.
+        searchBar();
 
     }
 
@@ -163,6 +163,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         brandRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         brandRecyclerView.setAdapter(brandAdapter);
     }
+// For action results conditions must be set. these conditions will check the users' input against Firestore data and
+// if they reflect the content of either RecyclerView the View or an item of the view will appear.
+    void searchBar(){
+
+        searchMagnifyingGlass.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    //textView1.setText(searchMagnifyingGlass.getText());
+                    //mPlayerEditNameCardView.setVisibility(View.INVISIBLE);
+                    imm.hideSoftInputFromWindow(searchMagnifyingGlass.getWindowToken(), 0);
+                    //Temporary Toast until Firestore integration.
+                    Context context = MainActivity.this.getApplicationContext();
+                    CharSequence tempTextForSearch = "I'm AWESOME!";
+                    int duration = Toast.LENGTH_LONG;
+
+                    Toast.makeText(context, tempTextForSearch, duration).show();
+
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
 
 
     protected void onStart (){
@@ -180,4 +204,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 }
-

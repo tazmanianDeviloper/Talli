@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="return_button">&#xf060;</string>
+    <string name="shopping_cart_button">&#xf217;</string>
+</resources>

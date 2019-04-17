@@ -5,14 +5,7 @@ The class will initialize the necessary fields for the People button which will 
 activity.
  */
 
-import android.graphics.Typeface;
-import android.widget.TextView;
-
-public class PeopleJavaListItem extends MainActivity {
-
-// Fontawsome icons represented by the fallowing two variables.
-    private TextView userNoName;
-    private TextView userNoImage;
+public class PeopleJavaListItem {
 
 // Firestore data-set represented by the fallowing two variables.
     private String userName;
@@ -28,21 +21,6 @@ are not ImageView because in FireStore the only allowed format is String.
 */
 
     public PeopleJavaListItem(String userName, String userImage) {
-
-        //condition for users without a name.
-        if (userName.trim().equals("")) {
-            userNoName.setText("No Name");
-            this.userName = userName;
-
-        }
-        //condition for users without an image.
-        if (userImage.trim().equals("")){
-            userNoImage = (TextView) findViewById(R.id.user_no_image);
-            Typeface userPlus = Typeface.createFromAsset(getAssets(),"fonts/font_awesome_5_pro_light_300.otf");
-            userNoImage.setTypeface(userPlus);
-            userNoImage.setText("\uf506");
-        }
-
 
         this.userImage = userImage;
     }

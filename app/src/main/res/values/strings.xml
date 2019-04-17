@@ -13,22 +13,4 @@
     <string name="pff">pulled_from_firestore</string>
     <string name="pffo">pulled_from_fontawsome</string>
     <string name="pffi">pffi</string>
-
-    <!-- Font Awesome Codes -->
-    <string name="fa_icon_areachart">&#xf1fe;</string>
-    <string name="fa_icon_piechart">&#xf200;</string>
-    <string name="fa_icon_linechart">&#xf201;</string>
-    <string name="fa_icon_comments">&#xf086;</string>
-    <string name="fa_icon_circle">&#xf111;</string>
-    <string name="fa_icon_shopping_cart">&#xf07a;</string>
-    <string name="fa_icon_sync">&#xf021;</string>
-    <string name="fa_icon_images">&#xf302;</string>
-    <string name="fa_icon_image">&#xf03e;</string>
-    <string name="fa_icon_share">&#xf14d;</string>
-    <string name="fa_icon_user_slash">&#xf506;</string>
-    <string name="fa_icon_cart_plus">&#xf217;</string>
-    <string name="fa_icon_arrow_left">&#xf060;</string>
-
-
-
 </resources>

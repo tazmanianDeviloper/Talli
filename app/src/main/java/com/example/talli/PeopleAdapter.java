@@ -14,23 +14,19 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 Firestore adapter retrieving data from the database and assigning them to class variables.
  */
 
-public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem, PeopleAdapter.PeopleHolder>{
-
-
+public class PeopleAdapter extends FirestoreRecyclerAdapter <PeopleJavaListItem, PeopleAdapter.PeopleHolder> {
 
     PeopleAdapter(@NonNull FirestoreRecyclerOptions<PeopleJavaListItem> options) {
         super(options);
     }
 
-
     @Override
     protected void onBindViewHolder(@NonNull PeopleHolder holder, int position, @NonNull PeopleJavaListItem model) {
 
         holder.userName.setText(model.getUserName());
-        holder.peopleImage.setText(model.getUserImage());
-       // Glide.with(holder.peopleImage).load(model.getUserImage()).into(holder.peopleImage);
+        holder.userImage.setText(model.getUserImage());
 
-
+       // Glide.with(holder.userImage).load(model.getUserImage()).into(holder.userImage);
     }
 
     @NonNull
@@ -45,12 +41,12 @@ The holder class mapping instances of ProductJavaListItem Class and initiating t
  */
     class PeopleHolder extends RecyclerView.ViewHolder {
         TextView userName;
-        TextView peopleImage;
+        TextView userImage;
 
         PeopleHolder(@NonNull View itemView) {
             super(itemView);
-            userName = itemView.findViewById(R.id.people_name);
-            peopleImage = itemView.findViewById(R.id.user_image);
+            userName = itemView.findViewById(R.id.user_name);
+            userImage = itemView.findViewById(R.id.user_image);
 
         }
     }
