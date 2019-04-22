@@ -34,7 +34,6 @@ other is for the RecyclerView.
 */
 
     public String getProductName() {
-
         return productName;
     }
 
