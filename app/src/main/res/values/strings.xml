@@ -13,7 +13,4 @@
     <string name="pff">pulled_from_firestore</string>
     <string name="pffo">pulled_from_fontawsome</string>
     <string name="pffi">pffi</string>
-    <string name="left_arrow">fa_icon_arrow_left</string>
-    <string name="fa_icon_arrow_left">fa_icon_arrow_left</string>
-    <string name="fa_icon_cart_plus">fa_icon_cart_plus</string>
 </resources>

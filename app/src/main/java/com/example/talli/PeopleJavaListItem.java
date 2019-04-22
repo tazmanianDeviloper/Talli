@@ -22,7 +22,6 @@ are not ImageView because in FireStore the only allowed format is String.
 
     public PeopleJavaListItem(String userName, String userImage) {
 
-        this.userName = userName;
         this.userImage = userImage;
     }
 

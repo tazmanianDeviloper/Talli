@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Layout searchPageLayout;
 
-    CardView searchCardView;
-
     FontAwesomeTextView returnButton;
     EditText searchMagnifyingGlass;
     FontAwesomeTextView shoppingCartButton;
@@ -75,9 +73,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         brandsRecyclerView = findViewById(R.id.brands_recycleView);
 
         returnButton = (FontAwesomeTextView) findViewById(R.id.return_button);
-        // Typeface leftArrowIcon = Typeface.createFromAsset(getAssets(),"fonts/font_awesome_5_pro_light_300.otf");
-        // returnButton.setTypeface(leftArrowIcon);
-        // returnButton.setText("\uf060");
 
         shoppingCartButton = (FontAwesomeTextView) findViewById(R.id.shopping_cart_button);
         // Typeface cartPlusIcon = Typeface.createFromAsset(getAssets(),"fonts/Pro-Light-300.otf");
@@ -87,9 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //I am not sure if I can set the magnifying glass icon at the beginning of the search bar using a fontawsome icon.
         // Superman: My suggestion is to look at daniel's fragment_camera.xml to see how he overlays com.Talli.Alpha.Development.IconTextView in the TalliAppAndroid Project
         searchMagnifyingGlass = (EditText) findViewById(R.id.search_magnifying_glass);
-        //Typeface magnifyingGlassIcon = Typeface.createFromAsset(getAssets(),"fonts/font_awesome_5_pro_light_300.otf");
-        //searchMagnifyingGlass.setTypeface(magnifyingGlassIcon);
-        //searchMagnifyingGlass.setText("\uf002");
 
 //the default view before user's input.
         lunchPeopleRecyclerView();
